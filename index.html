@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Link Processor</title>
+</head>
+<body>
+    <h1>Link Processor</h1>
+    <p>Enter a link and click the button to process it:</p>
+
+    <input type="text" id="linkInput" placeholder="Enter link...">
+    <button onclick="processLink()">Process</button>
+
+    <p id="result"></p>
+
+    <script>
+        function processLink() {
+            const linkInput = document.getElementById('linkInput').value;
+            const result = document.getElementById('result');
+
+            // Find the position of "csgo_econ_action_preview" in the link
+            const pos = linkInput.indexOf('csgo_econ_action_preview');
+
+            if (pos !== -1) {
+                // Erase everything before "csgo_econ_action_preview"
+                const editedLink = linkInput.substring(pos);
+
+                // Replace "%20" with a space
+                const finalLink = editedLink.replace(/%20/g, ' ');
+
+                result.textContent = 'Edited link: ' + finalLink;
+            } else {
+                result.textContent = 'The link does not contain "csgo_econ_action_preview".';
+            }
+        }
+    </script>
+</body>
+</html>
