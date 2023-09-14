@@ -19,6 +19,11 @@
             color: #666;
         }
 
+        .example-link {
+            font-style: italic;
+            color: #999; /* Lighter color */
+        }
+
         input[type="text"] {
             padding: 10px;
             font-size: 16px;
@@ -46,7 +51,7 @@
 <body>
     <h1>CS to CS2 Ingame Inspect Link</h1>
     <p>Enter CS:GO Ingame Inspect Link:</p>
-    <p>Example format: steam://rungame/730/76561202255233023/+csgo_econ_action_preview%20S76561199262109604A32998668152D12286491578830823678</p>
+    <p class="example-link">Example format: steam://rungame/730/76561202255233023/+csgo_econ_action_preview%20S76561199262109604A32998668152D12286491578830823678</p>
 
     <input type="text" id="linkInput" placeholder="Enter link...">
     <button onclick="processLink()">Convert</button>
