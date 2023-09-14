@@ -46,6 +46,19 @@
             margin-top: 20px;
             font-size: 18px;
         }
+
+        #copyButton {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #28a745; /* Green color for copy button */
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        #copyButton:hover {
+            background-color: #218838;
+        }
     </style>
 </head>
 <body>
@@ -57,6 +70,7 @@
     <button onclick="processLink()">Convert</button>
 
     <p id="result"></p>
+    <button id="copyButton" onclick="copyResult()">Copy Result</button>
 
     <script>
         function processLink() {
@@ -77,6 +91,17 @@
             } else {
                 result.textContent = 'The link does not contain "csgo_econ_action_preview".';
             }
+        }
+
+        function copyResult() {
+            const result = document.getElementById('result');
+            const textArea = document.createElement('textarea');
+            textArea.value = result.textContent;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+            alert('Result copied to clipboard!');
         }
     </script>
 </body>
